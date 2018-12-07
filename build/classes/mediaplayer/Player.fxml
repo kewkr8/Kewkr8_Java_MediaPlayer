@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mediaplayer.PlayerController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Visualizer">
+               <items>
+                  <MenuItem id="off" mnemonicParsing="false" onAction="#selectVisualizer" text="Off" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectVisualizer" text="On" />
+               </items></Menu>
+          <Menu fx:id="bandsMenu" mnemonicParsing="false" text="Bands" />
+            <Menu mnemonicParsing="false" text="About">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+               </items></Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane VBox.vgrow="ALWAYS">
+         <children>
+            <Button alignment="BASELINE_RIGHT" contentDisplay="BOTTOM" layoutX="132.0" layoutY="42.0" mnemonicParsing="false" onAction="#handlePause" text="Pause" />
+            <Button contentDisplay="CENTER" layoutX="53.0" layoutY="42.0" mnemonicParsing="false" onAction="#handlePlay" text="Start" textAlignment="CENTER" />
+            <Button layoutX="219.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+            <Slider fx:id="timeSlider" layoutX="450.0" layoutY="46.0" onMousePressed="#handleSliderMousePressed" onMouseReleased="#handleSliderMouseReleased" prefHeight="17.0" prefWidth="351.0" />
+            <AnchorPane fx:id="vizPane" layoutX="225.0" layoutY="500.0" prefHeight="200.0" prefWidth="750.0" />
+            <Label layoutX="817.0" layoutY="46.0" text="Length" />
+            <Label layoutX="76.0" layoutY="100.0" text="Bands" />
+            <Label layoutX="299.0" layoutY="46.0" text="Current" />
+            <Text fx:id="bandsText" layoutX="130.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="lengthText" layoutX="875.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="TOP" />
+            <Text fx:id="currentText" layoutX="350.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="filePathText" layoutX="48.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <MediaView fx:id="mediaView" fitHeight="700.0" fitWidth="800.0" layoutX="174.0" layoutY="90.0" />
+            <Text fx:id="errorText" layoutX="34.0" layoutY="730.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Slider fx:id="volumeSlider" blockIncrement="0.1" layoutX="26.0" layoutY="30.0" majorTickUnit="0.2" max="1.0" minorTickCount="0" orientation="VERTICAL" value="1.0" />
+            <Label layoutX="76.0" layoutY="126.0" text="Volume" />
+            <Text fx:id="volumeText" layoutX="132.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
